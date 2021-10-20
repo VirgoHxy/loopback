@@ -1,6 +1,6 @@
 ## Client
 
-后端服务
+后端api服务 可快捷创建api
 
 * client/ 客户端文件目录，存放JavaScript、HTML、CSS等文件
 * node-modules/ 依赖模块

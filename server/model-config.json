@@ -14,19 +14,19 @@
     ]
   },
   "city": {
-    "dataSource": "db",
+    "dataSource": "mysqlDb",
     "public": true
   },
   "group": {
-    "dataSource": "db",
+    "dataSource": "mysqlDb",
     "public": true
   },
   "project": {
-    "dataSource": "db",
+    "dataSource": "mysqlDb",
     "public": true
   },
   "user": {
-    "dataSource": "db",
+    "dataSource": "mysqlDb",
     "public": true
   }
 }

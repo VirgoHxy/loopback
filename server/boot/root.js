@@ -5,7 +5,11 @@
 
 'use strict';
 
+const createModels = require('./create-models');
+
 module.exports = function(server) {
+  // 创建模块
+  createModels(server);
   // Install a `/` route that returns server status
   const router = server.loopback.Router();
   router.get('/', server.loopback.status());

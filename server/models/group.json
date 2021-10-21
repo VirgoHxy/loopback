@@ -7,7 +7,7 @@
   },
   "properties": {
     "id": {
-      "type": "number",
+      "type": "string",
       "required": true
     },
     "cityId": {
@@ -23,7 +23,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "project": {
+      "type": "hasMany",
+      "model": "project",
+      "foreignKey": ""
+    },
+    "city": {
+      "type": "belongsTo",
+      "model": "city",
+      "foreignKey": "cityId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

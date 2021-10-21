@@ -1,5 +1,7 @@
 'use strict';
 
+const {S4, guid} = require('../../common/plugin/number');
+
 module.exports = function(city) {
   // 分页查询(查询为get,所以添加该post方法)
   city.findList = async function(arg = {}) {
@@ -34,6 +36,7 @@ module.exports = function(city) {
         count,
       };
     } catch (error) {
+      console.log(error);
       return {
         status: false,
         errMsg: error.message,
@@ -59,6 +62,7 @@ module.exports = function(city) {
         data: one,
       };
     } catch (error) {
+      console.log(error);
       return {
         status: false,
         errMsg: error.message,
@@ -68,19 +72,36 @@ module.exports = function(city) {
   // 通过id添加或编辑(可将条件加在body而不用放在链接中)
   city.insertOrUpdate = async function(arg = {}) {
     try {
-      let state = await city.upsert(arg);
+      let one = await city.findOne({
+        // 条件
+        where: {and: [{name: arg.name}]},
+        // 跳过实例数
+        skip: 0,
+        // 限制实例数
+        limit: 0,
+        // 包含在响应的字段或者是去掉的
+        fields: [],
+      });
+      let state;
+      if (one) { throw new Error(`${one.name}已存在`); }
+      if (!arg.id) {
+        state = await city.create(arg);
+      } else {
+        state = await city.update(arg);
+      }
       return {
         status: true,
         data: state,
       };
     } catch (error) {
+      console.log(error);
       return {
         status: false,
         errMsg: error.message,
       };
     }
   };
-  // 通过id删除(删除为delete,,所以添加该post方法)
+  // 通过id删除(删除为delete,所以添加该post方法)
   city.delete = async function(arg = {}) {
     try {
       let {id} = arg;
@@ -95,6 +116,7 @@ module.exports = function(city) {
         status: true
       };
     } catch (error) {
+      console.log(error);
       return {
         status: false,
         errMsg: error.message,

@@ -4,5 +4,14 @@
     "localStorage": "",
     "file": "./data/db.json",
     "connector": "memory"
+  },
+  "mysqlDb": {
+    "host": "localhost",
+    "port": 3306,
+    "database": "loopback2mysql",
+    "password": "root",
+    "name": "mysqlDb",
+    "user": "root",
+    "connector": "mysql"
   }
 }

@@ -7,7 +7,7 @@
   },
   "properties": {
     "id": {
-      "type": "number",
+      "type": "string",
       "required": true
     },
     "name": {
@@ -19,7 +19,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "group": {
+      "type": "hasMany",
+      "model": "group",
+      "foreignKey": ""
+    }
+  },
   "acls": [],
   "methods": {}
 }

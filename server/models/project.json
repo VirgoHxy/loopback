@@ -1,3 +1,4 @@
+
 {
   "name": "project",
   "base": "PersistedModel",
@@ -7,7 +8,7 @@
   },
   "properties": {
     "id": {
-      "type": "number",
+      "type": "string",
       "required": true
     },
     "cityId": {
@@ -27,7 +28,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "group": {
+      "type": "belongsTo",
+      "model": "group",
+      "foreignKey": "cityId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

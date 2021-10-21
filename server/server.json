@@ -2,7 +2,8 @@
   "name": "loopback",
   "script": "server/server.js",
   "cwd": "./",
-  "autorestart": true,
+  "max_restarts": 5,
+  "restart_delay": 4000,
   "instances": 1,
   "exec_mode": "fork",
   "watch": [

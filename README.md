@@ -1,8 +1,8 @@
 ## Client
 
-后端api服务 可快捷创建api
+Loopback3 后端api服务 可快捷创建api
 
-* client/ 客户端文件目录，存放JavaScript、HTML、CSS等文件
+* client/ 客户端文件目录(一般不使用)，存放JavaScript、HTML、CSS等文件
 * node-modules/ 依赖模块
 * server/ 服务端资源目录
   * boot/ 存放启动脚本，详情请查看官方文档
@@ -14,3 +14,4 @@
   * middleware.json 默认中间件配置
   * model-config.json 模型绑定到数据源配置
   * server.js 服务端程序入口
+  * server.json pm2启动配置

@@ -7,8 +7,12 @@
 
 const loopback = require('loopback');
 const boot = require('loopback-boot');
+const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = module.exports = loopback();
+
+app.middleware('auth', bodyParser.json());
 
 app.start = function() {
   // start the web server
@@ -25,7 +29,16 @@ app.start = function() {
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
-boot(app, __dirname, function(err) {
+boot(app, {
+  appRootDir: __dirname,
+  bootScripts: [
+    path.join(__dirname, './boot/async.js'),
+    path.join(__dirname, './boot/first.js'),
+    path.join(__dirname, './boot/create-models.js'),
+    path.join(__dirname, './boot/root.js'),
+    path.join(__dirname, './boot/last.js'),
+  ],
+}, function(err) {
   if (err) throw err;
 
   // start the server if `$ node server.js`

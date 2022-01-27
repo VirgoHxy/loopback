@@ -14,6 +14,13 @@
 .idea
 .project
 .strong-pm
+.vscode
+.nyc_output
 coverage
 node_modules
 npm-debug.log
+server/boot/test.js
+server/boot/b1.test.js
+utils/createModel.js
+utils/getSql.js
+utils/demo.js

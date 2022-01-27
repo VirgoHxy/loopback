@@ -9,6 +9,6 @@
   },
   "rules": {
     "comma-dangle": "off",
-    "max-len": "off"
+    "max-len": ["error", { "code": 140 }]
   }
 }

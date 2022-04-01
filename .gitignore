@@ -14,7 +14,7 @@
 .idea
 .project
 .strong-pm
-.vscode
+# .vscode
 .nyc_output
 coverage
 node_modules
